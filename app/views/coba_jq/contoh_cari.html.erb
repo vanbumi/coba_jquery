@@ -1,0 +1,30 @@
+<table>
+	<tr>
+		<td>
+			<input type="text" name="service" id="service_name" placeholder="Services" onkeyup="search.service();">
+			<div id="el_service"></div>
+		</td>
+		<td>
+			<input type="text" name="suburb" id="" placeholder="Suburb or Postcode">
+			<div id="el_suburb"></div>
+		</td>
+		<td>
+			<button>Search</button>
+		</td>
+		
+	</tr>
+</table>
+
+<script>
+	var search = {
+		service: function() {
+			$.ajax({
+				url: '/contoh_cari/service',
+				data: 'service=' + $('#service_name').val(),  
+				success: function(response) {
+					$('#el_service').html(response);	
+				} 
+			});
+		}
+	};
+</script>
